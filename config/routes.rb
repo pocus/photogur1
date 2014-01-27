@@ -1,7 +1,14 @@
 Photogur::Application.routes.draw do
 
+  #order matters
+  #if you put :id first it will try to match "new" into ":id"
+  get 'pictures/new' => 'pictures#new' #when pictures/new with get, go to picturescontroller and call new
+  post 'pictures' => 'pictures#create' #when pictures with post, go to picturescontroller and call create mthod
+
   get 'pictures' => 'pictures#index' # when /pictures, go to picturescontrller, and call index method.
   get 'pictures/:id' => 'pictures#show', as: "picture" #when /pictures/:id, go to picturescontroller and call show method.
+
+
 
   #aka
   #picture_path(arg) where arg gets turned into :id

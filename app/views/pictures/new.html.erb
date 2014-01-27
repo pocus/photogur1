@@ -1,0 +1,26 @@
+<!-- this is form to acquire the new picture -->
+
+<h1>Add a new picture</h1>
+
+<%= form_tag "/pictures" do %> <!-- expecting ruby code to fill this in -->
+<p>
+	<%= label_tag "artist" %><br> <!-- expectin some ruby method called label_tag -->
+	<%= text_field_tag "artist" %> <!-- apparently these are called form helpers and are part of rails -->
+</p>
+
+<p>
+	<%= label_tag "title" %><br>
+	<!-- does the name of the field get passed route? -->
+	<%= text_field_tag "title" %>
+</p>
+
+<p>
+	<%= label_tag "url" %><br>
+	<%= text_field_tag "url" %>
+</p>
+
+<p>
+	<%= submit_tag "Save" %>
+</p>
+
+<%end%>

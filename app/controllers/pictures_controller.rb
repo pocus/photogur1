@@ -59,6 +59,17 @@ class PicturesController < ApplicationController
 		# if params[:id] =1, then @picture = @pictures[1]
 	end
 
+	def new
+	end
+
+	def create
+		render :text => "Saving a picture. URL: #{params[:url]}, Title: #{params[:title]}, Artist: #{params[:artist]}"
+		#render a hash called "text". the key is text. the value is an interpolated string.
+		#interpolated values are probably from the form?
+	end
+
+end
+
 
 
 	# def picture0 #this looks for something called picture0.html.
@@ -85,7 +96,3 @@ class PicturesController < ApplicationController
 	# 			:url =>  "http://monicao.s3.amazonaws.com/bitmaker/girl.jpg"
 	# 	}
 	# end
-
-
-end
-
