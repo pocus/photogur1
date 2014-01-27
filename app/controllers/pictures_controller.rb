@@ -1,6 +1,6 @@
 class PicturesController < ApplicationController
 
-	def index #I guess this somehow automatically renders index.html?
+	def index #this somehow automatically renders index.html
 
 		@pictures = [ #array of hashes
 
@@ -28,6 +28,32 @@ class PicturesController < ApplicationController
 		]
 
 	end
+
+	def picture0 #this looks for something called picture0.html.
+		@picture = {
+			:title => "The old church",
+			:artist => "Sergey Ershov",
+			:url => "http://monicao.s3.amazonaws.com/bitmaker/house.jpg"
+		}
+	end
+
+	def picture1
+		@picture = {
+				:title => "Sea power",
+				:artist => "Stephen Schullion",
+				:url => "http://monicao.s3.amazonaws.com/bitmaker/wave.jpg"
+		}
+	end
+
+
+	def picture2
+		@picture = {
+				:title => "Into the poppies",
+				:artist => "John Wilhelm",
+				:url =>  "http://monicao.s3.amazonaws.com/bitmaker/girl.jpg"
+		}
+	end
+
 
 end
 

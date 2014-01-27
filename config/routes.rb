@@ -2,6 +2,10 @@ Photogur::Application.routes.draw do
 
   get 'pictures' => 'pictures#index' # when /pictures, go to picturescontrller, and call index method.
 
+  get 'pictures/0' => 'pictures#picture0' #when /pictures/0, go to picturescontroller, and call picture0?
+  get 'pictures/1' => 'pictures#picture1'
+  get 'pictures/2' => 'pictures#picture2'
+
 end
 
   # The priority is based upon order of creation: first created -> highest priority.
