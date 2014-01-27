@@ -1,6 +1,6 @@
 Photogur::Application.routes.draw do
 
-  get 'pictures' => 'pictures#index' #when /pictures go to picturescontrller and call index method.
+  get 'pictures' => 'pictures#index' # when /pictures, go to picturescontrller, and call index method.
 
 end
 
