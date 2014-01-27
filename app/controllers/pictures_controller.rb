@@ -11,15 +11,36 @@ class PicturesController < ApplicationController
 	end
 
 	def new
+		@picture = Picture.new
 	end
 
 	def create
-		render :text => "Saving a picture. URL: #{params[:url]}, Title: #{params[:title]}, Artist: #{params[:artist]}"
-		#render a hash called "text". the key is text. the value is an interpolated string.
-		#interpolated values are probably from the form?
+
+		@picture = Picture.new(picture_params) #call the new methid in teh picture class
+
+		if @picture.save
+			#if save OK go to index.html.erb
+			redirect_to pictures_url #where is pictures_url? a routing helper?
+		else
+			render :new #render new.html.erb
+
+			#render :text => "Saving a picture. URL: #{params[:url]}, Title: #{params[:title]}, Artist: #{params[:artist]}"
+			#render a hash called "text". the key is text. the value is an interpolated string.
+			#interpolated values are probably from the form?
+		end
+
 	end
 
+
+	private
+	def picture_params
+		params.require(:picture).permit(:artist, :title, :url)
+	end
+
+
+
 end
+
 
 
 
