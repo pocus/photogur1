@@ -1,10 +1,15 @@
 Photogur::Application.routes.draw do
 
   get 'pictures' => 'pictures#index' # when /pictures, go to picturescontrller, and call index method.
+  get 'pictures/:id' => 'pictures#show', as: "picture" #when /pictures/:id, go to picturescontroller and call show method.
 
-  get 'pictures/0' => 'pictures#picture0' #when /pictures/0, go to picturescontroller, and call picture0?
-  get 'pictures/1' => 'pictures#picture1'
-  get 'pictures/2' => 'pictures#picture2'
+  #aka
+  #picture_path(arg) where arg gets turned into :id
+
+
+  #get 'pictures/0' => 'pictures#picture0' #when /pictures/0, go to picturescontroller, and call picture0?
+  #get 'pictures/1' => 'pictures#picture1' #this is impractical static routing.
+  #get 'pictures/2' => 'pictures#picture2' #this is also impractical static routing
 
 end
 
