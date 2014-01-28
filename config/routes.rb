@@ -1,18 +1,22 @@
 Photogur::Application.routes.draw do
 
+  # post 'pictures' => 'pictures#create' #when pictures with post, go to picturescontroller and call create mthod
+
+  # get 'pictures' => 'pictures#index'
+  # get 'pictures/new' => 'pictures#new' #when pictures/new with get, go to picturescontroller and call new
+
+  # get 'pictures/:id/edit' => 'pictures#edit', as: 'edit_picture'
+  # patch 'pictures/:id' => 'pictures#update'
+
+  # delete 'pictures/:id' => 'pictures#destroy', as: 'delete_picture' #railsguides 1.2
+
+  # #order matters
+  # #if you put :id first it will try to match "new" into ":id"
+
+  # get 'pictures/:id' => 'pictures#show', as: "picture" #when /pictures/:id, go to picturescontroller and call show method.
+
+  resources :pictures
   root :to => "pictures#index" #when root - go to PicturesController and call index.
-  get 'pictures' => 'pictures#index'
-
-  #order matters
-  #if you put :id first it will try to match "new" into ":id"
-  get 'pictures/new' => 'pictures#new' #when pictures/new with get, go to picturescontroller and call new
-  post 'pictures' => 'pictures#create' #when pictures with post, go to picturescontroller and call create mthod
-
-  get 'pictures' => 'pictures#index' # when /pictures, go to picturescontrller, and call index method.
-  get 'pictures/:id' => 'pictures#show', as: "picture" #when /pictures/:id, go to picturescontroller and call show method.
-
-
-
   #aka
   #picture_path(arg) where arg gets turned into :id
 

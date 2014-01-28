@@ -1,9 +1,7 @@
 class PicturesController < ApplicationController
 
 	def index #this somehow automatically renders index.html
-
 		@pictures = Picture.all #.all --- probably in the activerecord:base? see railsguides s5.2
-
 	end
 
 	def show
@@ -14,7 +12,7 @@ class PicturesController < ApplicationController
 		@picture = Picture.new
 	end
 
-	def create
+	def create #called when there's a post
 
 		@picture = Picture.new(picture_params) #call the new methid in teh picture class
 
@@ -29,6 +27,25 @@ class PicturesController < ApplicationController
 			#interpolated values are probably from the form?
 		end
 
+	end
+
+	def edit
+		@picture = Picture.find(params[:id]) #:id from router
+	end
+
+	def update #called when there's a patch request
+		@picture = Picture.find(params[:id])
+		if @picture.update_attributes(picture_params)
+			redirect_to "/pictures/#{@picture.id}"
+		else
+			render :edit
+		end
+	end
+
+	def destroy
+		@picture = Picture.find(params[:id])
+		@picture.destroy #comes with rails
+		redirect_to pictures_url
 	end
 
 
