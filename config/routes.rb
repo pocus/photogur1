@@ -1,5 +1,8 @@
 Photogur::Application.routes.draw do
 
+  root :to => "pictures#index" #when root - go to PicturesController and call index.
+  get 'pictures' => 'pictures#index'
+
   #order matters
   #if you put :id first it will try to match "new" into ":id"
   get 'pictures/new' => 'pictures#new' #when pictures/new with get, go to picturescontroller and call new
