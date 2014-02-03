@@ -2,6 +2,25 @@
 
 <%= link_to "add picture", "/pictures/new" %>
 
+<h1>Most recent five</h1>
+
+<ul>
+<% @recent_five.each do |p| %>
+
+<li> <%= link_to p.title, "/pictures/#{p.id}"  %> // <%= p.created_at %></li>
+
+
+<% end %>
+
+</ul>
+
+
+<hr/>
+
+
+
+<h1>All pictures</h1>
+
 <% @pictures.each do |pic| %>
 
 	<p><%= pic[:title] %>, <%= pic[:artist] %></p>

@@ -2,6 +2,7 @@ class PicturesController < ApplicationController
 
 	def index #this somehow automatically renders index.html
 		@pictures = Picture.all #.all --- probably in the activerecord:base? see railsguides s5.2
+		@recent_five = Picture.most_recent_five
 	end
 
 	def show
@@ -35,6 +36,7 @@ class PicturesController < ApplicationController
 
 	def update #called when there's a patch request
 		@picture = Picture.find(params[:id])
+
 		if @picture.update_attributes(picture_params)
 			redirect_to "/pictures/#{@picture.id}"
 		else
@@ -52,6 +54,7 @@ class PicturesController < ApplicationController
 	private
 	def picture_params
 		params.require(:picture).permit(:artist, :title, :url)
+		#params.require(:model_name).permit(:attribute, :attribute, :attribute)
 	end
 
 
