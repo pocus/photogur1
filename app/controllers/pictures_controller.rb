@@ -3,6 +3,9 @@ class PicturesController < ApplicationController
 	def index #this somehow automatically renders index.html
 		@pictures = Picture.all #.all --- probably in the activerecord:base? see railsguides s5.2
 		@recent_five = Picture.most_recent_five
+		@older_than_day = Picture.created_before(1.day.ago)
+
+
 	end
 
 	def show

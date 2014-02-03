@@ -3,20 +3,25 @@
 <%= link_to "add picture", "/pictures/new" %>
 
 <h1>Most recent five</h1>
-
 <ul>
 <% @recent_five.each do |p| %>
-
-<li> <%= link_to p.title, "/pictures/#{p.id}"  %> // <%= p.created_at %></li>
-
-
-<% end %>
-
+	<li> <%= link_to p.title, "/pictures/#{p.id}"  %> // <%= p.created_at %></li>
+	<% end %>
 </ul>
-
-
 <hr/>
 
+<h1>older than a day</h1>
+
+<ul>
+<% @older_than_day.each do |p| %>
+<li> <%= p.title %> </li>
+<% end %>
+</ul>
+
+Total pictures older than a day:
+<%= @older_than_day.count %>
+
+<hr/>
 
 
 <h1>All pictures</h1>
